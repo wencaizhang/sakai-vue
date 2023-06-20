@@ -10,6 +10,8 @@ const outsideClickListener = ref(null);
 const topbarMenuActive = ref(false);
 const router = useRouter();
 
+const appName = import.meta.env.VITE_APP_NAME;
+
 onMounted(() => {
     bindOutsideClickListener();
 });
@@ -61,7 +63,7 @@ const isOutsideClicked = (event) => {
     <div class="layout-topbar">
         <router-link to="/" class="layout-topbar-logo">
             <img :src="logoUrl" alt="logo" />
-            <span>SAKAI</span>
+            <span>{{ appName }}</span>
         </router-link>
 
         <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
